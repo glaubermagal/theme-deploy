@@ -15,3 +15,5 @@
 
 ## Running
 `theme-deploy [themekit arguments]`
+
+![](./screenshot.png)
