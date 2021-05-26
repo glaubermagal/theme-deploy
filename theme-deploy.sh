@@ -11,9 +11,9 @@ done
 
 current_dir="`pwd`"
 tmp_dir=$(mktemp -d -t shopify-theme-)
-echo -e "STARTING...\n"
-echo `rsync -av . $current_dir/* $tmp_dir | echo "Copied current files to temp"`
-echo "DOWNLOADING REMOTE THEME TO TEMP FOLDER: $tmp_dir"
+echo "STARTING...\n"
+echo `rsync -av . $current_dir/* $tmp_dir | echo "COPIED ALL FILES TO TEMP FOLDER $tmp_dir"`
+echo "DOWNLOADING REMOTE THEME TO TEMP FOLDER..."
 theme get --env=$env --dir=$tmp_dir
 if [ $? == 1 ]; then
   exit
@@ -22,7 +22,7 @@ theme configure --env=$env --dir=./
 
 git_diff=`git diff --name-status --no-index $current_dir $tmp_dir`
 if [ "$git_diff" != "" ]; then
-  echo -e "\n$git_diff\n"
+  echo "\n$git_diff\n"
 
   while true; do
       read -p "The above files will be overwritten on Shopify. Would you like to continue anyway? (y/N)? " yn
@@ -45,6 +45,6 @@ if [[ $env == *"production"* ]]; then
   done
 fi
 
-echo -e "\n\nDEPLOYING THEME..."
+echo "\n\nDEPLOYING THEME..."
 
 theme deploy $@
