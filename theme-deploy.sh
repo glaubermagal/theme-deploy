@@ -1,4 +1,8 @@
 #!/bin/bash
+
+current_dir="`pwd`"
+tmp_dir=$(mktemp -d -t shopify-theme-)
+
 for ARGUMENT in "$@"
 do
   KEY=$(echo $ARGUMENT | cut -f1 -d=)
@@ -9,8 +13,6 @@ do
   fi
 done
 
-current_dir="`pwd`"
-tmp_dir=$(mktemp -d -t shopify-theme-)
 echo "STARTING...\n"
 echo `rsync -av . $current_dir/* $tmp_dir | echo "COPIED ALL FILES TO TEMP FOLDER $tmp_dir"`
 echo "DOWNLOADING REMOTE THEME TO TEMP FOLDER..."
