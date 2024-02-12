@@ -1,4 +1,4 @@
-Shopify Theme Diff Tool
+# Shopify Theme Diff Tool
 
 This tool facilitates the deployment of a Shopify theme by performing the following steps:
 
