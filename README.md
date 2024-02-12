@@ -1,24 +1,38 @@
-# theme-deploy
+Shopify Theme Diff Tool
 
-- downloads the remote theme into a temp folder
-- runs git diff of the current folder against the temp folder downloaded
-- shows differences if exists
-- asks if you really want to overwrite the changes
-- asks if you really want to deploy the changes
+This tool facilitates the deployment of a Shopify theme by performing the following steps:
+
+- Downloads the remote theme into a temporary folder.
+- Runs a git diff of the current folder against the downloaded temporary folder.
+- Displays any differences that exist.
+- Prompts the user to confirm if they want to overwrite the changes.
+- Asks for confirmation before deploying the changes.
 
 ## Requirements
-1. git cli
-2. [Shopify themekit](https://shopify.dev/tools/theme-kit/getting-started)
 
-## Installing
-`curl -o /usr/local/bin/theme-deploy -k https://raw.githubusercontent.com/glaubermagal/theme-deploy/main/theme-deploy.sh && chmod +x /usr/local/bin/theme-deploy`
-
-## Running
-`theme-deploy [themekit arguments]`
+Ensure the following prerequisites are met:
+1. [git CLI](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2. [Shopify Themekit](https://shopify.dev/tools/theme-kit/getting-started)
 
 
-----
+## Installation
+
+To install, run the following command in your terminal:
+
+```bash
+curl -o /usr/local/bin/theme-deploy -k https://raw.githubusercontent.com/glaubermagal/theme-deploy/main/theme-deploy.sh && chmod +x /usr/local/bin/theme-deploy
 ```
+
+## Usage
+Run the tool with Themekit arguments:
+
+```bash
+theme-deploy [themekit arguments]
+```
+
+### Example Usage
+
+```bash
 apt0$ sh ./theme-deploy.sh --env=store-dev
 
 STARTING...
